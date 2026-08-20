@@ -1,0 +1,66 @@
+﻿version: '3.8'
+
+services:
+  # Frontend Service - React Application
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
+    networks:
+      - quantum-network
+    restart: unless-stopped
+
+  # Backend Service - Node.js + Express + Socket.IO
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "5001:5001"
+    environment:
+      - MONGODB_URI=mongodb://mongodb:27017/quantum-chat
+      - JWT_SECRET=${JWT_SECRET:-quantum_secret_key_change_in_production}
+      - QUANTUM_SERVICE_URL=http://quantum-service:5000
+      - PORT=5001
+      - NODE_ENV=production
+    depends_on:
+      - mongodb
+      - quantum-service
+    networks:
+      - quantum-network
+    restart: unless-stopped
+
+  # Quantum Service - Python + Flask + Qiskit
+  quantum-service:
+    build:
+      context: ./quantum-service
+      dockerfile: Dockerfile
+    ports:
+      - "5000:5000"
+    env_file:
+      - ./quantum-service/.env
+    networks:
+      - quantum-network
+    restart: unless-stopped
+
+  # MongoDB Database
+  mongodb:
+    image: mongo:6.0
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb-data:/data/db
+    networks:
+      - quantum-network
+    restart: unless-stopped
+
+networks:
+  quantum-network:
+    driver: bridge
+
+volumes:
+  mongodb-data:
