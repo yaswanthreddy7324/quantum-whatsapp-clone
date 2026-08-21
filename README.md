@@ -125,37 +125,37 @@ The project includes a demonstration area for:
 
 ## 🔐 Login
 
-![Login](Screenshots/login.png)
+![Login](screenshots/login.png)
 
 ---
 
 ## 👤 Person 1
 
-![Person 1](Screenshots/user1.png)
+![Person 1](screenshots/user1.png)
 
 ---
 
-## 👤 person 2
+## 👤 Person 2
 
-![person 2](Screenshots/user2.png)
+![Person 2](screenshots/user2.png)
 
 ---
 
 ## 🗄️ Secure Communication Between The Users
 
-![Secure Communication Between The Users](Screenshots/database.png)
+![Secure Communication](screenshots/database.png)
 
 ---
 
 ## 🔒 Encrypted Messages
 
-![Encrypted Messages](Screenshots/encrypted-message.png)
+![Encrypted Messages](screenshots/encrypted-message.png)
 
 ---
 
 ## ⚛️ Shor's Algorithm / RSA Attack Simulation
 
-![Shor's Algorithm](Screenshots/shor-algorithm.png)
+![Shor's Algorithm](screenshots/shor-algorithm.png)
 
 ---
 
