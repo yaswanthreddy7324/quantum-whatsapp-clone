@@ -119,43 +119,43 @@ The project includes a demonstration area for:
 
 ---
 
-# # 🖥️ Screenshots
+# 🖥️ Screenshots
 
 > Screenshots of the Quantum Secure Chat System demonstrating authentication, secure communication, encryption, and quantum security concepts.
 
 ## 🔐 Login
 
-![Login](screenshots/login.png)
+![Login](quantum/screenshots/login.png)
 
 ---
 
 ## 👤 Person 1
 
-![Person 1](screenshots/user1.png)
+![Person 1](quantum/screenshots/user1.png)
 
 ---
 
 ## 👤 Person 2
 
-![Person 2](screenshots/user2.png)
+![Person 2](quantum/screenshots/user2.png)
 
 ---
 
 ## 🗄️ Secure Communication Between the Users
 
-![Secure Communication](screenshots/database.png)
+![Secure Communication](quantum/screenshots/secure-communication.png)
 
 ---
 
 ## 🔒 Encrypted Messages
 
-![Encrypted Messages](screenshots/encrypted-message.png)
+![Encrypted Messages](quantum/screenshots/encrypted-message-database.png)
 
 ---
 
 ## ⚛️ Shor's Algorithm / RSA Attack Simulation
 
-![Shor's Algorithm](screenshots/shor-algorithm.png)
+![Shor's Algorithm](quantum/screenshots/decrypted-result.png)
 
 ---
 
