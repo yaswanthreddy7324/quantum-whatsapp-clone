@@ -129,21 +129,21 @@ The project includes a demonstration area for:
 
 ---
 
-## 👤 User 1
+## 👤 Person 1
 
-![User 1](Screenshots/user1.png)
-
----
-
-## 👤 User 2
-
-![User 2](Screenshots/user2.png)
+![Person 1](Screenshots/user1.png)
 
 ---
 
-## 🗄️ Database
+## 👤 person 2
 
-![Database](Screenshots/database.png)
+![person 2](Screenshots/user2.png)
+
+---
+
+## 🗄️ Secure Communication Between The Users
+
+![Secure Communication Between The Users](Screenshots/database.png)
 
 ---
 
