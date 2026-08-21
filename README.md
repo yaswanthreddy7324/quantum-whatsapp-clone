@@ -119,9 +119,9 @@ The project includes a demonstration area for:
 
 ---
 
-# 🖥️ Screenshots
+# # 🖥️ Screenshots
 
-> **Note:** Place the extracted images from your project documentation inside the `Screenshots/` folder using the filenames shown below.
+> Screenshots of the Quantum Secure Chat System demonstrating authentication, secure communication, encryption, and quantum security concepts.
 
 ## 🔐 Login
 
@@ -141,7 +141,7 @@ The project includes a demonstration area for:
 
 ---
 
-## 🗄️ Secure Communication Between The Users
+## 🗄️ Secure Communication Between the Users
 
 ![Secure Communication](screenshots/database.png)
 
