@@ -1,265 +1,606 @@
-# Quantum WhatsApp Clone
+# 🔐 Quantum Secure Chat System
 
-A production-ready, real-time chat application with quantum cryptography integration using Qiskit and Docker.
+**A full-stack real-time messaging platform combining classical cryptography with quantum cryptography concepts to demonstrate secure communication and future quantum threats.**
 
-## 🚀 Features
-
-- **Real-time Messaging**: Instant bidirectional chat using WebSockets (Socket.IO)
-- **Quantum Cryptography**: Message encryption using quantum-generated keys via IBM Quantum
-- **BB84 Protocol**: Quantum key distribution implementation
-- **JWT Authentication**: Secure user authentication
-- **Dockerized**: Complete microservices architecture with Docker Compose
-- **MongoDB**: Persistent message and user storage
-
-## 💾 Stopping and Saving
-
-To stop the project without losing your database messages:
-```powershell
-docker-compose stop
-```
-
-To fully remove the containers (but keep your database volume):
-```powershell
-docker-compose down
-```
-
-The database data is stored in a Docker volume named `mongodb-data`. It will persist even if you delete the containers.
+[![Python](https://img.shields.io/badge/Python-3.x-blue?logo=python)](https://www.python.org/)
+[![Qiskit](https://img.shields.io/badge/Qiskit-Quantum_Computing-6929C4?logo=ibm)](https://www.ibm.com/quantum/qiskit)
+[![AES](https://img.shields.io/badge/AES--256-Encryption-green)](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard)
+[![RSA](https://img.shields.io/badge/RSA-Public_Key_Cryptography-orange)](https://en.wikipedia.org/wiki/RSA_%28cryptosystem%29)
+[![BB84](https://img.shields.io/badge/BB84-Quantum_Key_Distribution-purple)](https://en.wikipedia.org/wiki/BB84)
+[![WebSockets](https://img.shields.io/badge/WebSockets-Real--Time_Communication-black)](https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API)
+[![Docker](https://img.shields.io/badge/Docker-Containerized-blue?logo=docker)](https://www.docker.com/)
 
 ---
 
-## 🛠️ Maintenance
+## 📌 Project Overview
 
-- **View Logs**: `docker-compose logs -f backend`
-- **Database Shell**: `docker exec -it quantum-mongodb-1 mongosh`
-- **Rebuild**: If you change the code, run `docker-compose up --build -d`
+**Quantum Secure Chat System** is a full-stack academic project designed to demonstrate how classical cryptography and quantum cryptography concepts can be combined to improve secure communication.
 
-## 🏗️ Architecture
+The system provides a real-time chat environment where messages are protected using **AES encryption**, keys can be exchanged using **RSA**, and a **BB84 Quantum Key Distribution (QKD) simulation** demonstrates how quantum principles can be used for secure key generation and eavesdropping detection.
 
+The project also includes a **Shor's Algorithm demonstration using Qiskit** to illustrate how sufficiently powerful quantum computers could threaten traditional public-key cryptography such as RSA.
+
+### Core Concept
+
+```text
+                    QUANTUM SECURE CHAT
+                           │
+             ┌─────────────┴─────────────┐
+             │                           │
+       Classical Security          Quantum Security
+             │                           │
+        ┌────┴────┐                  ┌───┴────┐
+        │         │                  │        │
+       AES       RSA                BB84    Shor's
+        │         │                  │        │
+   Message      Key                Secure   RSA Attack
+  Encryption   Exchange           Key QKD  Simulation
 ```
-┌─────────────┐      ┌─────────────┐      ┌──────────────────┐
-│   Frontend  │◄────►│   Backend   │◄────►│ Quantum Service  │
-│  (React)    │      │  (Node.js)  │      │  (Python+Qiskit) │
-└─────────────┘      └──────┬──────┘      └──────────────────┘
+
+---
+
+## ✨ Key Features
+
+### 🔐 Secure Authentication
+
+* User login system
+* User-based chat sessions
+* Protected communication interface
+* Secure access to chat functionality
+
+### 💬 Real-Time Chat
+
+* Real-time message communication
+* Bi-directional message synchronization
+* User-to-user messaging
+* WebSocket-based communication
+* Designed for low-latency communication
+
+### 🔒 AES Encryption
+
+* AES-based message encryption
+* Protects chat messages from unauthorized access
+* Provides symmetric encryption for message payloads
+* Supports the hybrid cryptographic architecture
+
+### 🔑 RSA Key Exchange
+
+* RSA-based public-key cryptography
+* Demonstrates secure key exchange
+* Shows the role of classical public-key cryptography in secure communication
+* Used to demonstrate the limitations of RSA against future quantum computers
+
+### ⚛️ BB84 Quantum Key Distribution
+
+The project includes a simulation of the **BB84 Quantum Key Distribution protocol**.
+
+The BB84 component demonstrates:
+
+* Quantum basis selection
+* Key generation
+* Photon/polarization concepts
+* Basis comparison
+* Secret-key extraction
+* Eavesdropping detection
+
+The project uses BB84 as a quantum-inspired secure key exchange mechanism.
+
+### ⚡ Shor's Algorithm Demonstration
+
+The project demonstrates the security threat posed by quantum computing to RSA.
+
+Using **Qiskit**, the system demonstrates the basic concept of factoring a number using Shor's Algorithm.
+
+For the demonstration:
+
+```text
+n = 15
+a = 2
+Period r = 4
+
+gcd(2^(4/2) - 1, 15) = 3
+gcd(2^(4/2) + 1, 15) = 5
+
+Result:
+15 = 3 × 5
+```
+
+This illustrates why sufficiently capable quantum computers could threaten RSA-based cryptography.
+
+### 🧪 Security Attack Simulation
+
+The project includes a demonstration area for:
+
+* Encrypted messages
+* Database storage
+* Attempted message analysis
+* RSA vulnerability demonstration
+* Shor's Algorithm simulation
+
+---
+
+# 🖥️ Screenshots
+
+> **Note:** Place the extracted images from your project documentation inside the `Screenshots/` folder using the filenames shown below.
+
+## 🔐 Login
+
+![Login](Screenshots/login.png)
+
+---
+
+## 👤 User 1
+
+![User 1](Screenshots/user1.png)
+
+---
+
+## 👤 User 2
+
+![User 2](Screenshots/user2.png)
+
+---
+
+## 🗄️ Database
+
+![Database](Screenshots/database.png)
+
+---
+
+## 🔒 Encrypted Messages
+
+![Encrypted Messages](Screenshots/encrypted-message.png)
+
+---
+
+## ⚛️ Shor's Algorithm / RSA Attack Simulation
+
+![Shor's Algorithm](Screenshots/shor-algorithm.png)
+
+---
+
+# 🛠️ Technology Stack
+
+| Technology     | Purpose                                                |
+| -------------- | ------------------------------------------------------ |
+| **Python**     | Backend programming and application logic              |
+| **Qiskit**     | Quantum computing and Shor's Algorithm simulation      |
+| **AES-256**    | Symmetric message encryption                           |
+| **RSA**        | Public-key cryptography and key exchange demonstration |
+| **BB84 QKD**   | Quantum Key Distribution simulation                    |
+| **WebSockets** | Real-time communication                                |
+| **HTML5**      | Web page structure                                     |
+| **CSS3**       | User interface styling                                 |
+| **JavaScript** | Client-side functionality                              |
+| **Docker**     | Containerized application deployment                   |
+| **Git/GitHub** | Version control and source-code management             |
+
+The project's documented technology stack includes Python, Qiskit, AES-256, RSA, WebSockets and BB84 QKD.
+
+---
+
+# 🏗️ System Architecture
+
+```text
+                         ┌──────────────────────┐
+                         │       Client         │
+                         │  HTML / CSS / JS     │
+                         └──────────┬───────────┘
+                                    │
+                                    ▼
+                         ┌──────────────────────┐
+                         │   Real-Time Chat     │
+                         │     WebSockets       │
+                         └──────────┬───────────┘
+                                    │
+                     ┌──────────────┴──────────────┐
+                     │                             │
+                     ▼                             ▼
+          ┌──────────────────┐          ┌──────────────────┐
+          │ Classical Crypto │          │ Quantum Security │
+          └────────┬─────────┘          └────────┬─────────┘
+                   │                             │
+             ┌─────┴─────┐                 ┌─────┴─────┐
+             │           │                 │           │
+            AES         RSA               BB84       Qiskit
+             │           │                 │           │
+             │      Key Exchange           │      Shor's
+             │                             │     Algorithm
+             └──────────────┬──────────────┘
                             │
-                     ┌──────▼──────┐
-                     │   MongoDB   │
-                     └─────────────┘
+                            ▼
+                   ┌─────────────────┐
+                   │ Secure Messages │
+                   └─────────────────┘
 ```
 
-## 📋 Prerequisites
+---
 
-- Docker & Docker Compose
-- IBM Quantum account (free): https://quantum-computing.ibm.com/
-- Git
+# 🔄 Project Workflow
 
-## ⚡ Quick Start
+```text
+User Login
+    │
+    ▼
+Select Chat User
+    │
+    ▼
+Generate / Exchange Secure Key
+    │
+    ├──────────────► RSA
+    │
+    └──────────────► BB84 QKD Simulation
+                         │
+                         ▼
+                    Secure Key
+                         │
+                         ▼
+                   AES Encryption
+                         │
+                         ▼
+                    Send Message
+                         │
+                         ▼
+                    WebSocket
+                         │
+                         ▼
+                  Receiving User
+                         │
+                         ▼
+                  AES Decryption
+                         │
+                         ▼
+                  Original Message
+```
 
-### 1. Clone and Setup
+---
+
+# ⚛️ BB84 Quantum Key Distribution
+
+The BB84 protocol is used to demonstrate quantum key distribution.
+
+### Basic Process
+
+```text
+Alice
+  │
+  │ Random bits + random bases
+  ▼
+Quantum Channel
+  │
+  │ Possible interception
+  ▼
+Bob
+  │
+  │ Measures using random bases
+  ▼
+Compare Bases
+  │
+  ▼
+Discard Different Bases
+  │
+  ▼
+Generate Shared Secret Key
+```
+
+The project demonstrates BB84 as a mechanism for generating secure keys and detecting potential eavesdropping.
+
+---
+
+# 🔐 Hybrid Encryption Model
+
+The project combines multiple cryptographic techniques.
+
+### Message Security
+
+```text
+Original Message
+       │
+       ▼
+   AES Encryption
+       │
+       ▼
+Encrypted Message
+       │
+       ▼
+Secure Communication
+       │
+       ▼
+AES Decryption
+       │
+       ▼
+Original Message
+```
+
+### Key Security
+
+```text
+           Secure Key
+               │
+       ┌───────┴───────┐
+       │               │
+      RSA             BB84
+       │               │
+Classical Key     Quantum Key
+ Exchange           Simulation
+```
+
+The hybrid approach combines the strong symmetric encryption of AES with classical and quantum-inspired key exchange concepts.
+
+---
+
+# ⚠️ RSA vs Quantum Computing
+
+RSA is widely used in classical public-key cryptography, but a sufficiently powerful quantum computer running Shor's Algorithm could factor large integers efficiently.
+
+This project demonstrates the concept using a small example:
+
+```text
+RSA / Integer
+     │
+     ▼
+Shor's Algorithm
+     │
+     ▼
+Quantum Period Finding
+     │
+     ▼
+Factorization
+     │
+     ▼
+RSA Vulnerability Demonstration
+```
+
+For the project demonstration:
+
+```text
+n = 15
+
+15 = 3 × 5
+```
+
+The project uses this small example to demonstrate the principle rather than claiming that modern RSA keys can be practically broken by the current simulator.
+
+---
+
+# 🧪 Security Demonstration
+
+The project demonstrates several security scenarios:
+
+| Security Component   | Demonstration                       |
+| -------------------- | ----------------------------------- |
+| **AES**              | Message encryption                  |
+| **RSA**              | Classical key exchange              |
+| **BB84**             | Quantum key distribution simulation |
+| **Shor's Algorithm** | RSA vulnerability demonstration     |
+| **WebSockets**       | Real-time communication             |
+| **Database**         | Message/user data management        |
+
+The project presentation specifically identifies login, two users, database interaction, and attempts to analyze encrypted messages as part of the demonstrated system flow.
+
+---
+
+# 📋 Project Objectives
+
+### Secure Chat Design
+
+* Build a real-time chat application
+* Provide private communication between users
+* Protect messages using encryption
+
+### BB84 Implementation
+
+* Simulate Quantum Key Distribution
+* Generate secure shared keys
+* Demonstrate eavesdropping detection
+
+### AES Encryption
+
+* Encrypt messages before transmission
+* Prevent unauthorized access to message content
+
+### Shor's Algorithm
+
+* Demonstrate quantum factoring
+* Explain the future threat to RSA
+* Show why post-quantum cryptography is important
+
+### Deployment
+
+* Support containerized deployment using Docker
+* Make the project easier to run and manage
+
+These objectives are documented in the project's presentation.
+
+---
+
+# 📂 Recommended Repository Structure
+
+```text
+quantum-whatsapp-clone/
+│
+├── Screenshots/
+│   ├── login.png
+│   ├── user1.png
+│   ├── user2.png
+│   ├── database.png
+│   ├── encrypted-message.png
+│   └── shor-algorithm.png
+│
+├── src/
+│   └── ...
+│
+├── README.md
+├── requirements.txt
+├── Dockerfile
+├── docker-compose.yml
+└── Q-CHAT-DOCUMENTATION.docx
+```
+
+---
+
+# 🚀 Installation & Setup
+
+## 1. Clone the Repository
 
 ```bash
-cd d:\quantum
+git clone https://github.com/yaswanthreddy7324/quantum-whatsapp-clone.git
 ```
-
-### 2. Configure IBM Quantum API Key
-
-Create `quantum-service/.env`:
-
-```env
-IBM_QUANTUM_API_KEY=your_actual_api_key_here
-```
-
-Create `backend/.env`:
-
-```env
-MONGODB_URI=mongodb://mongodb:27017/quantum-chat
-JWT_SECRET=your_super_secret_jwt_key_change_this_in_production
-QUANTUM_SERVICE_URL=http://quantum-service:5000
-PORT=5001
-```
-
-### 3. Start the Application
 
 ```bash
-docker-compose up --build
+cd quantum-whatsapp-clone
 ```
 
-### 4. Access the Application
+## 2. Create a Virtual Environment
 
-- **Frontend**: http://localhost:3000
-- **Backend API**: http://localhost:5001
-- **Quantum Service**: http://localhost:5000
+### Windows
 
-## 🧪 Testing the System
-
-### Register Users
-1. Open http://localhost:3000
-2. Register two users (e.g., Alice and Bob)
-
-### Test Real-time Chat
-1. Login as Alice in one browser/tab
-2. Login as Bob in another browser/incognito tab
-3. Send messages between users
-4. Observe instant delivery
-
-### Verify Quantum Encryption
-Check the backend console logs:
-```
-[QUANTUM] Generating quantum key...
-[QUANTUM] Key generated: qk_abc123 (256 bits)
-[ENCRYPTED] alice → bob: 0x4a3f2e1d...
-[SOCKET] Message delivered
-```
-
-## 📡 API Endpoints
-
-### Authentication
-- `POST /api/auth/register` - Register new user
-- `POST /api/auth/login` - Login and get JWT token
-
-### Messages
-- `POST /api/messages` - Send message (requires auth)
-- `GET /api/messages/:userId` - Get chat history (requires auth)
-
-### Quantum Service
-- `POST /generate-key` - Generate quantum encryption key
-
-## 🔐 Security Features
-
-- ✅ API keys stored in `.env` (gitignored)
-- ✅ Passwords hashed with bcrypt
-- ✅ JWT token authentication
-- ✅ Quantum-generated encryption keys
-- ✅ No sensitive data in logs
-
-## 🧬 Quantum Cryptography
-
-This project demonstrates quantum key generation using:
-
-1. **Quantum Randomness**: True random number generation using quantum superposition
-2. **BB84 Protocol**: Quantum key distribution protocol
-3. **Qiskit Integration**: IBM's quantum computing SDK
-
-### How It Works
-
-1. User sends message
-2. Backend requests quantum key from quantum service
-3. Quantum service creates quantum circuit with Hadamard gates
-4. Circuit executed on IBM Quantum simulator/hardware
-5. Measurement results converted to encryption key
-6. Message encrypted with quantum key
-7. Encrypted message stored and transmitted
-
-## 🐳 Docker Services
-
-| Service | Port | Technology |
-|---------|------|------------|
-| Frontend | 3000 | React + Vite |
-| Backend | 5001 | Node.js + Express + Socket.IO |
-| Quantum Service | 5000 | Python + Flask + Qiskit |
-| MongoDB | 27017 | MongoDB 6.0 |
-
-## 🛠️ Development
-
-### Run Individual Services
-
-**Frontend:**
 ```bash
-cd frontend
-npm install
-npm run dev
+python -m venv venv
 ```
 
-**Backend:**
+Activate it:
+
 ```bash
-cd backend
-npm install
-npm start
+venv\Scripts\activate
 ```
 
-**Quantum Service:**
+### Linux / macOS
+
 ```bash
-cd quantum-service
+python3 -m venv venv
+```
+
+```bash
+source venv/bin/activate
+```
+
+## 3. Install Dependencies
+
+```bash
 pip install -r requirements.txt
+```
+
+## 4. Run the Application
+
+Use the project's main Python entry point, for example:
+
+```bash
 python app.py
 ```
 
-## 📝 Project Structure
-
-```
-quantum-whatsapp-clone/
-├── frontend/              # React application
-│   ├── src/
-│   │   ├── components/   # React components
-│   │   └── App.jsx       # Main app
-│   └── Dockerfile
-├── backend/              # Node.js server
-│   ├── src/
-│   │   ├── models/       # MongoDB models
-│   │   ├── routes/       # API routes
-│   │   ├── middleware/   # Auth middleware
-│   │   └── services/     # Quantum service client
-│   └── Dockerfile
-├── quantum-service/      # Python quantum service
-│   ├── quantum/          # Quantum algorithms
-│   │   ├── key_generator.py
-│   │   └── bb84.py
-│   ├── app.py
-│   └── Dockerfile
-└── docker-compose.yml    # Orchestration
-```
-
-## 🔧 Troubleshooting
-
-### Containers won't start
-```bash
-docker-compose down -v
-docker-compose up --build
-```
-
-### Quantum service errors
-- Verify IBM Quantum API key in `quantum-service/.env`
-- Check Qiskit version compatibility
-
-### Messages not appearing
-- Check browser console for Socket.IO connection
-- Verify backend logs for errors
-
-## 📚 Technologies Used
-
-- **Frontend**: React, Socket.IO Client, Axios
-- **Backend**: Node.js, Express, Socket.IO, Mongoose, JWT
-- **Quantum**: Python, Flask, Qiskit, IBM Quantum Runtime
-- **Database**: MongoDB
-- **DevOps**: Docker, Docker Compose
-
-## 🎓 Educational Purpose
-
-This project demonstrates:
-- Microservices architecture
-- Real-time WebSocket communication
-- Quantum computing integration
-- Containerization best practices
-- Full-stack development
-
-## ⚠️ Production Considerations
-
-For production deployment, consider:
-- HTTPS/TLS encryption
-- Rate limiting
-- Input validation and sanitization
-- Error handling improvements
-- Horizontal scaling
-- Key rotation policies
-- Monitoring and logging
-
-## 📄 License
-
-MIT License - Educational and demonstration purposes
-
-## 🤝 Contributing
-
-This is an educational project. Feel free to fork and experiment!
+> If your project uses a different entry file, replace `app.py` with the correct filename.
 
 ---
 
-**Built with ❤️ and ⚛️ Quantum Computing**
+# 🐳 Docker Deployment
+
+If Docker configuration is included in the repository:
+
+```bash
+docker build -t quantum-secure-chat .
+```
+
+Run the container:
+
+```bash
+docker run -p 5000:5000 quantum-secure-chat
+```
+
+Docker deployment is one of the documented objectives of the project.
+
+---
+
+# 🎯 Learning Outcomes
+
+Through this project, the following concepts were explored:
+
+* Python full-stack development
+* Real-time WebSocket communication
+* Symmetric cryptography
+* Public-key cryptography
+* AES encryption
+* RSA cryptography
+* Quantum Key Distribution
+* BB84 protocol
+* Quantum computing concepts
+* Qiskit
+* Shor's Algorithm
+* Cryptographic vulnerabilities
+* Database integration
+* Docker deployment
+* Git and GitHub
+
+---
+
+# 🔮 Future Enhancements
+
+The project can be further improved by:
+
+* Implementing true end-to-end encryption
+* Integrating modern post-quantum cryptographic algorithms
+* Replacing or supplementing RSA with quantum-resistant algorithms
+* Implementing production-grade BB84/QKD infrastructure
+* Adding stronger identity verification
+* Adding secure key rotation
+* Improving message integrity and authentication
+* Deploying the system to a cloud environment
+* Adding mobile support
+* Implementing comprehensive security testing
+
+True end-to-end encryption and integration of post-quantum cryptographic algorithms are identified as important future improvements in the project material.
+
+---
+
+# 📊 Existing vs Proposed System
+
+| Feature                      | Traditional Chat System | Quantum Secure Chat |
+| ---------------------------- | ----------------------- | ------------------- |
+| Real-Time Messaging          | ✅                       | ✅                   |
+| Classical Encryption         | ✅                       | ✅                   |
+| AES                          | Sometimes               | ✅                   |
+| RSA Key Exchange             | Possible                | ✅                   |
+| BB84 QKD                     | ❌                       | ✅ Simulation        |
+| Quantum Threat Demonstration | ❌                       | ✅                   |
+| Shor's Algorithm             | ❌                       | ✅ Simulation        |
+| Quantum-Security Analysis    | Limited                 | ✅                   |
+
+The project's proposed system specifically focuses on combining classical secure messaging with BB84 and demonstrating the quantum threat to RSA.
+
+---
+
+# 📚 References
+
+1. Bennett, C. H., & Brassard, G. — BB84 Quantum Key Distribution.
+2. Shor, P. W. — Polynomial-Time Algorithms for Prime Factorization and Discrete Logarithms on a Quantum Computer.
+3. Research literature on post-quantum cryptography and quantum threats to classical cryptography.
+4. IBM Qiskit documentation and quantum computing resources.
+
+---
+
+# 👨‍💻 Developer
+
+**Yaswanth Reddy Yaradla**
+
+B.Tech — Computer Science & Engineering
+DVR & Dr. HS MIC College of Technology
+
+### GitHub
+
+https://github.com/yaswanthreddy7324
+
+### Project Repository
+
+https://github.com/yaswanthreddy7324/quantum-whatsapp-clone
+
+---
+
+# 📜 Disclaimer
+
+This project is an **academic demonstration and simulation of quantum-secure communication concepts**. The BB84 and Shor's Algorithm components demonstrate the underlying concepts using simulation and should not be interpreted as production-grade quantum cryptographic infrastructure.
+
+---
+
+## ⭐ If you find this project useful
+
+Consider giving the repository a ⭐ on GitHub.
